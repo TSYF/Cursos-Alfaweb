@@ -1,0 +1,22 @@
+[
+    {
+        "nombre": "Javascript Moderno",
+        "descripcion": "Curso de Javascript Moderno",
+        "imagen": "https://i.ytimg.com/vi/QH2-TGUlwu4/maxresdefault.jpg",
+        "costo": "30000",
+        "cupos": "20",
+        "fecha": "2020-05-20",
+        "inscritos": [
+            {
+                "nombre": "Juan",
+                "email": "example@example.com",
+                "uid": "12345"
+            },
+            {
+                "nombre": "Pedro",
+                "email": "placeholder@placeholder.com",
+                "uid": "67890"
+            }
+        ]
+    }
+]
