@@ -1,7 +1,7 @@
 <template>
 	<v-app>
 		<Toolbar />
-		<LDrawer/>
+		<LDrawer />
 		<RDrawer />
 		<v-main>
 			<router-view />

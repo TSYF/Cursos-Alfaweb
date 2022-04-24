@@ -23,19 +23,29 @@
                 <v-divider></v-divider>
                 <v-list-item>
                     <v-list-item-content>
-                        <v-list-item-title>
                             <v-btn
                                 v-if="!getUser.isDummy"
                                 text
                                 @click="Sign_Out">
                                 Cerrar Sesion
                             </v-btn>
+                            <div v-else>
                             <v-btn
-                                v-else
                                 text
                                 @click="$router.push({name: 'login'})"
-                            >Sign In</v-btn>
-                        </v-list-item-title>
+                            >
+                            <v-icon>mdi-account-circle</v-icon>
+                            Login
+                            </v-btn>
+                            <br>
+                            <v-btn
+                                text
+                                @click="$router.push({name: 'registro'})"
+                            >
+                                <v-icon>mdi-account-plus</v-icon>
+                                <span>Registrarse</span>
+                            </v-btn>
+                            </div>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>

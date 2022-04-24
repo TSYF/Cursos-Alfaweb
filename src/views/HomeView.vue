@@ -1,7 +1,7 @@
 <template>
 	<v-container class="pa-10">
-		<v-row justify="space-around" align="start" wrap>
-				<v-card v-for="curso in cursos" :key="curso.codigo" max-width="400">
+		<v-row justify="start" align="start" wrap>
+				<v-card class="ma-5" v-for="curso in cursos" :key="curso.codigo" max-width="400">
 					<v-img :src="curso.imagen" />
 					<v-container class="pa-3 grey lighten-2">
 						<v-card-title>
@@ -62,7 +62,10 @@
 							<v-timeline-item>
 								<v-list-item two-line>
 									<v-list-item-content>
-										<h4>Descripción:</h4>
+										<h4>
+											<v-icon>mdi-format-align-left</v-icon>
+											Descripción:
+										</h4>
 										{{ curso.descripcion }}
 								</v-list-item-content>
 								</v-list-item>

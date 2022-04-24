@@ -47,19 +47,16 @@ const router = new VueRouter({
   routes
 })
 
-// ! Sesion se cierra cuando se manipula la ruta desde el navegador
-// TODO: Investigar soluciones para que no se cierre la sesion
-
-// router.beforeEach((to, from, next) => {
-//   const auth = getAuth();
-//   const loggedIn = auth.currentUser
-//   if (to.meta.requiresAuth && !loggedIn) {
-//     return next({name: 'login'})
-//   }
-//   if (to.name === 'login' && loggedIn) {
-//     return next({name: 'admin'})
-//   }
-//   next()
-// })
+router.beforeEach((to, from, next) => {
+  const auth = getAuth();
+  const loggedIn = auth.currentUser
+  if (to.meta.requiresAuth && !loggedIn) {
+    return next({name: 'login'})
+  }
+  if (to.name === 'login' && loggedIn) {
+    return next({name: 'admin'})
+  }
+  next()
+})
 
 export default router
