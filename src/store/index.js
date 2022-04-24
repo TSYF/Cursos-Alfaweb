@@ -113,6 +113,23 @@ const store = new Vuex.Store({
 			commit("SET_USER", null);
 			router.push({ name: "login" });
 		},
+		async Get_User({ commit }) {
+			const db = getFirestore();
+			const auth = getAuth();
+
+			const { uid } = auth.currentUser;
+
+			const q = query(
+				collection(db, "usuarios"),
+				where("uid", "==", uid)
+			);
+
+			onSnapshot(q, (querySnapshot) => {
+				querySnapshot.docs.forEach((doc) => {
+					commit("SET_USER", doc.data());
+				});
+			});
+		},
 		// FUNCIONES DE CURSOS
 		async Add_Course({ commit }, course) {
 			const db = getFirestore();

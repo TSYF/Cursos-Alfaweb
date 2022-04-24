@@ -45,6 +45,7 @@
 					password: "",
 				},
 				confirmPassword: "",
+				rules,
 			};
 		},
 		methods: {

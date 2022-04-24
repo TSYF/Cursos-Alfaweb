@@ -50,6 +50,7 @@ import rules from '@/helpers/rules.js';
             return {
                 email: '',
                 password: '',
+                rules,
             };
         },
         methods: {
