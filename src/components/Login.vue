@@ -6,18 +6,18 @@
             password
         });
         email = '';
-        password = ''
+        password = '';
         ">
             <h1 class="text-center">Login</h1>
             <v-text-field
                 v-model="email"
                 label="Email"
-                :rules="[value => !!value || 'Este campo es requerido']"
+                :rules="rules.email"
             ></v-text-field>
             <v-text-field
                 v-model="password"
                 label="Contraseña"
-                :rules="[value => !!value || 'Este campo es requerido']"
+                :rules="rules.password"
             ></v-text-field>
             <v-btn
                 color="primary"
@@ -43,6 +43,8 @@
 
 <script>
 import { mapActions } from 'vuex';
+import rules from '@/helpers/rules.js';
+
     export default {
         data() {
             return {

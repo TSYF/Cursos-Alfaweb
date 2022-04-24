@@ -4,26 +4,23 @@
 			<v-text-field
 				v-model="usuario.nombre"
 				label="Nombre"
-				:rules="[rules.required]"
+				:rules="rules.name"
 			></v-text-field>
 			<v-text-field
 				label="email"
 				v-model="usuario.email"
-				:rules="[rules.required, rules.email(usuario.email)]"
+				:rules="rules.email"
 			></v-text-field>
 			<v-text-field
 				label="password"
 				v-model="usuario.password"
-				:rules="[rules.required, rules.min(usuario.password, 6)]"
+				:rules="rules.password"
 				type="password"
 			></v-text-field>
 			<v-text-field
 				label="confirm password"
 				v-model="confirmPassword"
-				:rules="[
-					rules.required,
-					rules.confirmPassword(confirmPassword),
-				]"
+				:rules="rules.passwordConfirmation"
 				type="password"
 			>
 			</v-text-field>
@@ -38,6 +35,7 @@
 
 <script>
 	import { mapActions } from "vuex";
+	import rules from "@/helpers/rules.js";
 	export default {
 		data() {
 			return {
@@ -47,25 +45,6 @@
 					password: "",
 				},
 				confirmPassword: "",
-				rules: {
-					required: (value) => !!value || "Campo Requerido!.",
-					email: (value) => {
-						return (
-							/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(
-								value
-							) || "Dirección de correo inválida."
-						);
-					},
-					min: (value, num) =>
-						value.length >= num ||
-						"La contraseña debe tener al menos 6 caracteres.",
-					confirmPassword: (value) => {
-						return (
-							value === this.usuario.password ||
-							"Las contraseñas no coinciden."
-						);
-					},
-				},
 			};
 		},
 		methods: {
