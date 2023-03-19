@@ -13,7 +13,6 @@
 	import Toolbar from '@/components/Toolbar.vue';
 	import LDrawer from '@/components/LDrawer.vue';
 	import RDrawer from '@/components/RDrawer.vue';
-	import { mapState } from 'vuex';
 	import { getAuth } from 'firebase/auth';
 
 		export default {
@@ -24,6 +23,7 @@
 			updated() {
 				const auth = getAuth();
 				auth.currentUser && this.$store.dispatch("Get_User");
+				console.log(auth.currentUser);
 			},
 			data: () => ({
 				//

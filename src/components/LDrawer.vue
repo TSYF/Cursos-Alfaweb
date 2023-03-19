@@ -4,7 +4,7 @@
 		temporary
 		dark
 		color="blue darken-4"
-		v-model="ldrawer"
+		v-model="computedLDrwer"
 	>
 		<v-list nav dense>
 			<v-list-item-group
@@ -63,7 +63,15 @@
 
 	export default {
 		computed: {
-			...mapState(["ldrawer", "user"]),
+			...mapState(["lDrawer", "user"]),
+			computedLDrwer: {
+				get() {
+					return this.lDrawer
+				},
+				set(ldrawer) {
+					return ldrawer
+				}
+			}
 		},
 	};
 </script>

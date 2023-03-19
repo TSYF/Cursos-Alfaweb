@@ -78,7 +78,7 @@
 </template>
 
 <script>
-	import { mapState, mapActions, mapGetters } from 'vuex';
+	import { mapState } from 'vuex';
 	// TODO: CREAR COMPONENTE DE LOS CURSOS
 	export default {
 		name: "Home",

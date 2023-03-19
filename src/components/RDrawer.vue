@@ -5,7 +5,7 @@
             app
             right
             temporary
-            v-model="rdrawer">
+            v-model="computedRDrawer">
             <v-list class="text-center">
                 <v-list-item>
                     <v-list-item-avatar v-if="!getUser.isDummy">
@@ -50,7 +50,6 @@
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
-    </v-card>
 </template>
 
 <script>
@@ -59,8 +58,16 @@
 	export default {
         name: 'RDrawer',
 		computed: {
-			...mapState(["rdrawer"]),
+			...mapState(["rDrawer"]),
             ...mapGetters(["getUser"]),
+            computedRDrawer: {
+                get() {
+                    return this.rDrawer
+                },
+                set(newState) {
+                    return newState 
+                }
+            }
 		},
         methods: {
             ...mapActions(["Sign_Out"]),

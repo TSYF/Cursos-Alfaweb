@@ -11,7 +11,7 @@
 <script>
 import AddCourseDialog from '@/components/AddCourseDialog.vue';
 import AdminTable from '@/components/AdminTable.vue';
-import { mapState, mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 	export default {
         methods: {
