@@ -186,28 +186,28 @@ const store = new Vuex.Store({
                 onSnapshot(
                     q,
                     (querySnapshot) => {
-                        const cursos = [];
+                        const courses = [];
 
                         querySnapshot.docs.forEach((doc) => {
-                            let qCurso = doc.data();
+                            let courseData = doc.data();
 
-                            qCurso.fecha = new Date(
-                                qCurso.fecha.seconds * 1000
+                            courseData.fecha = new Date(
+                                courseData.fecha.seconds * 1000
                             ).toLocaleDateString();
 
-                            qCurso.precio = qCurso.precio.toLocaleString(
+                            courseData.precio = courseData.precio.toLocaleString(
                                 "es-CL",
                                 {
                                     style: "currency",
-                                    currency: "CLP",
+                                    currency: "CLP"
                                 }
                             );
 
-                            qCurso.terminado = qCurso.terminado ? "Si" : "No";
+                            courseData.terminado = courseData.terminado ? "Si" : "No";
 
-                            cursos.push(qCurso);
+                            courses.push(courseData);
                         });
-                        commit("SET_CURSOS", cursos);
+                        commit("SET_CURSOS", courses);
                     },
                     (error) =>
                         console.log("Error retrieving snapshot data: " + error)
