@@ -179,22 +179,6 @@ const store = new Vuex.Store({
         },
         async Get_Courses({ commit }) {
             try {
-                /* 
-                const db = getFirestore();
-                const q = query(collection(db, "cursos"));
-                onSnapshot(q, (querySnapshot) => {
-                    const cursos = [];
-                    querySnapshot.forEach((doc) => {
-                    const curso = {
-                        id: doc.id,
-                        data: doc.data(),
-                    };
-                    cursos.push(curso);
-                    });
-                    commit("SET_CURSOS", cursos);
-                });
-                */
-                
                 const db = getFirestore();
                 const collectionRef = collection(db, "cursos");
                 const q = query(collectionRef);
